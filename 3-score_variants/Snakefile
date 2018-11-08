@@ -1,0 +1,59 @@
+"""Run `kipoi veff score_variants` for multiple models and multiple vcf files
+"""
+
+import kipoi
+
+# config - TODO update
+vcf_sets = ['variants']
+fasta_file = 'input/hg38_chr22.fa'
+
+assert os.path.exists(fasta_file)
+
+# TODO - update
+# models = ['DeepSEA/variantEffects']  # , 'Basset']
+models = ['rbp']  # , 'Basset']
+
+file_formats = ['vcf', 'tsv', 'h5']
+
+rule all:
+    input:
+        expand("output/{vcf_set}/{model}.{ext}",
+               vcf_set=vcf_sets,
+               model=models,
+               ext=file_formats)
+
+# kipoi veff score_variants DeepSEA/score_a --dataloader_args='{"fasta_file": "inputs/hg38_chr22.fa"}' \
+# -i input/variants.vcf.gz -o output/variants.vcf -e output/variants.tsv
+
+rule score_variants:
+    input:
+        vcf = "input/{vcf_set}.vcf.gz",
+        fasta_file = fasta_file,
+        gtf_file = "models/rbp/example_files/gencode_v25_chr22.gtf.pkl.gz",
+        preproc_transformer = 'models/rbp/dataloader_files/encodeSplines.pkl'
+    output:
+        f = "output/{vcf_set}/{model}.{ext}",
+    params:
+        output_flag = lambda wildcards: "-o" if wildcards.ext == "vcf" else "-e",
+        workers = 10,  # number of workers
+        batch_size = 32
+    shell:
+        """
+        mkdir -p `dirname {output.f}`
+
+        kipoi_cmd=$(kipoi env get_cli {wildcards.model})
+
+        kipoi veff score_variants \
+            models/{wildcards.model} \
+            --dataloader_args='{{"fasta_file": "{input.fasta_file}",
+                                 "preproc_transformer": "{input.preproc_transformer}",
+                                 "gtf_file": "{input.gtf_file}"}}' \
+            -i {input.vcf} \
+            -n {params.workers} \
+            --batch_size={params.batch_size} \
+            {params.output_flag} {output.f} \
+            -s ref alt logit_ref logit_alt diff \
+            --std_var_id \
+            --source=dir
+        """
+# TODO - remove source=dir, gtf_file and preproc_transformer

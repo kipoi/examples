@@ -3,11 +3,20 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+docs/site/*
+docs/sources/*
+docs/theme_dir/img/ipynb/*
+
+# emacs
+*~
+.venv
+
 # C extensions
 *.so
 
 # Distribution / packaging
 .Python
+env/
 build/
 develop-eggs/
 dist/
@@ -19,11 +28,9 @@ lib64/
 parts/
 sdist/
 var/
-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -42,10 +49,10 @@ htmlcov/
 .coverage.*
 .cache
 nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
 .pytest_cache/
+coverage.xml
+*,cover
+.hypothesis/
 
 # Translations
 *.mo
@@ -53,15 +60,6 @@ coverage.xml
 
 # Django stuff:
 *.log
-local_settings.py
-db.sqlite3
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
 
 # Sphinx documentation
 docs/_build/
@@ -69,36 +67,21 @@ docs/_build/
 # PyBuilder
 target/
 
-# Jupyter Notebook
+# pycharm
+.idea
 .ipynb_checkpoints
+logfile.txt
 
-# pyenv
-.python-version
+examples/rbp/example_files/variants.vcf.gz.tbi
+/docs/mkdocs.yml
+/example/models/rbp/dataloader_files/intervals_file
+/example/models/rbp/example_files/intervals_file
+/example/models/rbp/model_files/weights/6f959cf27e58c065b1a73d10002eca35
+/example/models/rbp/downloaded/example_files/intervals_file
+**/downloaded/**
 
-# celery beat schedule file
-celerybeat-schedule
+*/.snakemake/**
+**/output/
 
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
+*.tbi
+*.fai
