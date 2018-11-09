@@ -1,21 +1,21 @@
-## TODO
-- [ ] give link to the presentation
-- [ ] Add ipykernel to shared environments in kipoi/models
+# kipoi/examples
 
 This repository contains different use-cases higlighting Kipoi. Check out the readme in each sub-folder for more information. Please follow the steps bellow to setup your environemnt:
 
 ## Setup
 
-- Install miniconda or anaconda (TODO - links)
-- required conda packages
-  - `conda install -y -c conda-forge jupyterlab`
-  - `conda install -y nb_conda`
-- required pip packages
-  - `pip install numpy pandas matplotlib seaborn snakemake kipoi>=0.6.0`
+- Install [miniconda](https://conda.io/miniconda.html) or [anaconda](https://conda.io/miniconda.html).
+- Make sure you have the following packages installed:
+  - conda:
+    - `conda install -y -c conda-forge jupyterlab`
+    - `conda install -y nb_conda`
+  - pip:
+    - `pip install numpy pandas matplotlib seaborn snakemake kipoi>=0.6.0`
 
-### Install Kipoi
+### Verify Kipoi
 
-- `pip install kipoi>=0.6.0 snakemake`
+Run:
+
 - `kipoi ls`  # list all the models
 
 ### Install the commmon environment
@@ -25,6 +25,7 @@ This repository contains different use-cases higlighting Kipoi. Check out the re
 ### Test the locally installed models
 
 Activate the environment
+
 ```bash
 source activate kipoi-shared__envs__kipoi-py3-keras2
 ```
@@ -40,7 +41,13 @@ kipoi test DeepSEA/predict --source=kipoi
 ```
 
 ```bash
-kipoi test DeepBind/.... --source=kipoi
+kipoi test DeepBind/Homo_sapiens/TF/D00328.018_ChIP-seq_CTCF/ --source=kipoi
 ```
 
-**Next step: [1-getting-started](1-getting-started)**
+**Next step: [1-predict](1-predict)**
+
+
+## Links
+
+- <https://kipoi.org> - website with pointers to the docs, white-paper and models.
+- [CSHL Biological Data Science 2018 presentation on Kipoi](http://bit.ly/18-11-kipoi-presentation)

@@ -1,0 +1,34 @@
+name: kipoi-fig4
+channels:
+- bioconda
+- conda-forge
+- pytorch
+- defaults
+dependencies:
+- python
+- pyvcf
+- cyvcf2
+- pybedtools
+- pysam
+- h5py
+- pytorch-cpu>=0.2.0
+- ls-gkm=0.0.1
+- genomelake
+- numpy
+- pandas
+- cython
+- ipython
+- jupyter
+- pip:
+  - intervaltree
+  - deepdish
+  - matplotlib
+  - seaborn
+  - shapely
+  - descartes
+  - kipoi
+  - tensorflow>=1.4
+  - keras>=2.0.6
+  - pyfaidx
+  - kipoi_veff
+
