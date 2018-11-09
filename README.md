@@ -16,7 +16,9 @@ This repository contains different use-cases higlighting Kipoi. Check out the re
 
 Run:
 
-- `kipoi ls`  # list all the models
+- `kipoi ls`
+
+This will list all the models and checkout the model source to `~/.kipoi/models`.
 
 ### Install the commmon environment
 
