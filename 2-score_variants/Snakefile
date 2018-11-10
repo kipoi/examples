@@ -4,7 +4,7 @@
 import kipoi
 
 # config - TODO update
-vcf_sets = ['variants']
+vcf_sets = ['variants', 'clinvar_20180429.enhancer-regions.chr22']
 fasta_file = 'input/hg38_chr22.fa'
 
 assert os.path.exists(fasta_file)
@@ -50,3 +50,30 @@ rule score_variants:
             --std_var_id
         """
 # TODO - remove source=dir, gtf_file and preproc_transformer
+
+# ------------------------------------------------
+
+
+CLINVAR_DATE = "20180429"  # clinvar dowload date
+
+
+rule download_clinvar:
+    """Download and filter clinvar:
+    - remove indels
+    - keep only chromosome 22
+    - keep only variants where alt != '.'
+    - replace 22 -> chr22
+    """
+    input:
+        filt_region = "../1-predict/input/enhancer-regions.hg19.chr22.bed.gz"
+    output:
+        vcf = "input/clinvar_{}.enhancer-regions.chr22.vcf.gz".format(CLINVAR_DATE)
+    shell:
+        """
+        wget -O - ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh37/archive_2.0/2018/clinvar_{CLINVAR_DATE}.vcf.gz | \
+          zcat | vcftools --vcf - --remove-indels --recode --recode-INFO-all -c --chr 22 | \
+          awk '$5 != "."' | \
+          sed  -e 's/^22/chr22/' | \
+          bedtools intersect -a stdin -b {input.filt_region} -wa -u -header |
+          gzip -c > {output.vcf}
+        """

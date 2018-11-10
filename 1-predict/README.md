@@ -6,7 +6,7 @@ Make sure have the environemnt setup ([../README.md](../README.md)).
 
 ### 1. Quick start 
 
-#### Exploring kipoi.org/groups
+#### Explore kipoi.org/groups
 
 In this step, we'll navigate to <https://kipoi.org>, select the model and run the example.
 
@@ -17,7 +17,7 @@ Task:
 Notes:
 - You can use the search bar at the top of <https://kipoi.org/groups/> to search by models. Try for example: 'DNA binding'
 
-### 2. Running `kipoi predict` on new data
+### 2. Run `kipoi predict` on new data
 
 Let's try to run model prediction on new data. Try:
 
@@ -58,7 +58,7 @@ Skim through the help of kipoi predict: `kipoi predict --help`. Further things t
   - install a new GPU environment by adding `--gpu` to `kipoi env create`
   - Run `kipoi predict` as before
 
-### 3. Running `kipoi predict` for multiple models using Snakemake
+### 3. Run `kipoi predict` for multiple models using Snakemake
 
 Now, let's run model predictions in parallel. We'll use [Snakemake](snakemake.readthedocs.io) for this.
 
@@ -72,7 +72,7 @@ snakemake
 
 This will run model prediction for many different models.
 
-### 4. Loading and analyzing predictions in python
+### 4. Load and analyze predictions in python
 
 Now that we have the predictions scored under `output/`, let's load them into python, join them into a table and to a very simple analysis. Run throught the [load-visualize.ipynb](./load-visualize.ipynb) notebook.
 
