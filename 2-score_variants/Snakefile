@@ -39,7 +39,7 @@ rule score_variants:
 
         kipoi_cmd=$(kipoi env get_cli {wildcards.model})
 
-        kipoi veff score_variants \
+        ${kipoi_cmd} veff score_variants \
             {wildcards.model} \
             --dataloader_args='{{"fasta_file": "{input.fasta_file}"}}' \
             -i {input.vcf} \
