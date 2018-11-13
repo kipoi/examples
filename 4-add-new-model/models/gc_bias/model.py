@@ -7,5 +7,12 @@ class GCBiasModel(BaseModel):
         self.dummy = dummy
 
     def predict_on_batch(self, x):
+        """
+        Args:
+          x (string): DNA sequence. Example 'ACGACATGAC'
+        
+        Returns:
+          float: fraction of 'G' or 'C' bases in the sequence
+        """
         # TODO
         pass

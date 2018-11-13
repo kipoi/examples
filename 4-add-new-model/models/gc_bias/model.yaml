@@ -22,21 +22,13 @@ info:
 
 schema:
   inputs:
-    name: seq
     doc: 100bp sequence
-    shape: (100, 4)
-    special_type: DNASeq
+    shape: ()
   targets:
-    doc: Sequece GC fraction
-    shape: (1, )
+    doc: Sequece GC fraction (scalar)
+    shape: ()
 
 postprocessing:
   variant_effects:
     seq_input:
       - seq
-
-test:
-  expect:
-    url: <TODO>
-    md5: <TODO>
-  precision_decimal: 6

@@ -32,14 +32,6 @@ rule all:
                interval=intervals,
                ext=file_formats)
 
-rule unzip:
-    input:
-        fa_gz = fasta_file + ".gz"
-    output:
-        fa = fasta_file
-    shell:
-        "zcat {input.fa_gz} > {output.fa}"
-
 # Main rule
 rule predict:
     """Generic rule for running model prediction for Kipoi models
@@ -65,3 +57,12 @@ rule predict:
           --batch_size={params.batch_size} \
           -o {output.predictions}
         """
+
+rule unzip:
+    input:
+        fa_gz = fasta_file + ".gz"
+    output:
+        fa = fasta_file
+    shell:
+        "zcat {input.fa_gz} > {output.fa}"
+        
