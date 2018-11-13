@@ -80,3 +80,6 @@ test:
 - <https://github.com/kipoi/kipoi/tree/master/example/models> - example models used for testing the Kipoi API
 - <http://kipoi.org/docs/contributing/01_Getting_started/> - getting started to contributing models
 - [Kipoi 0.6 release notes](https://medium.com/@zigaavsec/kipoi-0-6-release-notes-854a45bd6fdc) - blog post explaining model templaes, Kipoiseq, hosting remote files on Zenodo and prediction testing
+
+
+**Next step: [5-appendix](../5-appendix)**
