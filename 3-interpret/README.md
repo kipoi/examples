@@ -8,4 +8,4 @@ Make sure have the environemnt setup ([../README.md](../README.md)).
 
 Go through the [feature-imp-scores.ipynb](feature-imp-scores.ipynb) notebook.
 
-**Next step: [4-add-new-model](../4-add-new-model)**
+**Next step: [4-add-new-models](../4-add-new-models)**
