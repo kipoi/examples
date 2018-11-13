@@ -8,7 +8,7 @@ This repository contains different use-cases higlighting Kipoi. Check out the re
 - Make sure you have the following packages installed:
   - conda:
     - `conda install -y -c conda-forge jupyterlab`
-    - `conda install -y nb_conda`
+    - `conda install -y nb_conda datrie`
   - pip:
     - `pip install numpy pandas matplotlib seaborn snakemake kipoi>=0.6.0`
 
@@ -20,7 +20,7 @@ Run:
 
 This will list all the models and checkout the model source to `~/.kipoi/models`.
 
-### Install the commmon environment
+### Install the common environment
 
 - `kipoi env create shared/envs/kipoi-py3-keras2`
 
