@@ -22,8 +22,13 @@ Notes:
 Let's try to run model prediction on new data. We'll use enhancer regions in H1-hESC as annotated by ChromHMM (download [link](https://egg2.wustl.edu/roadmap/data/byDataType/dnase/BED_files_enh/regions_enh_E003.bed.gz)).
 
 Unzip the fasta file
+**Linux**
 ```bash
 zcat input/hg19.chr22.fa.gz > input/hg19.chr22.fa
+```
+**OSX**
+```bash
+gzcat input/hg19.chr22.fa.gz > input/hg19.chr22.fa
 ```
 
 Activate the right environment
