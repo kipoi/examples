@@ -1,42 +1,52 @@
-defined_as: model.GCBiasModel
+defined_as: kipoi.model.KerasModel
 args:
-  dummy: 3
+    weights:
+        url: https://github.com/kipoi/examples/blob/master/4-add-new-model/hosted_files/model1.h5?raw=true
+        md5: 3c6aebc01ab7105989855f58e3455917
 
-default_dataloader: TODO
-
-dependencies:
-  pip:
-    - numpy
+default_dataloader:
+  defined_as: kipoiseq.dataloaders.SeqIntervalDl
+  default_args:
+    auto_resize_len: 101
 
 info:
-  authors:
-  - github: yourname
-    name: Your Name
-  cite_as: https://doi.org/xyz
- 
-  doc: >
-    Compute the GC fraction of the sequence
-  license: MIT
-  tags:
-    - DNA methylation
+    authors:
+        - name: My Name
+          github: myname
+    doc: >
+      Dummy DNA-sequence-based model
+    cite_as: https://doi.org/xyz
+    trained_on: >
+      Simulation data https://github.com/kundajelab/dragonn/raw/master/paper_supplement/simulation_data/GC_fraction0.4motif_nameTAL1_known4num_neg10000num_pos10000seq_length500.npz
+    license: MIT
+    tags:
+        - DNA binding
 
+dependencies:
+  conda:
+    - h5py
+  pip:
+    - kipoiseq
+    - tensorflow>=1.4
+    - keras>=2.0.6
 schema:
   inputs:
     name: seq
-    doc: 100bp sequence
-    shape: (100, 4)
     special_type: DNASeq
+    shape: (101, 4)
+    doc: DNA sequence
+    associated_metadata: ranges
   targets:
-    doc: Sequece GC fraction
+    name: binding_prob
     shape: (1, )
+    doc: Protein binding probability
 
 postprocessing:
-  variant_effects:
-    seq_input:
-      - seq
+    variant_effects:
+      seq_input:
+        - seq
 
-test:
-  expect:
-    url: <TODO>
-    md5: <TODO>
-  precision_decimal: 6
+# test:
+#   expect:
+#     url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/DeepBind/{{ model }}/predictions.h5
+#     md5: 49efa1bb7794001d744b8ff1eb2ebd5c
