@@ -31,20 +31,22 @@ I created a Kipoi model out of a single model (model1) and saved it to: [models/
 
 Read [models/keras/model.yaml](models/keras/model.yaml) and run `kipoi test models/keras` to see if it works.
 
-Your task is now to use model templating to simulteneusly add all there models by writing the following two files:
+Your task is now to use model templating to simulteneusly add all there models to [models/multiple/](models/multiple/) by writing the following two files:
 
 ```
 model-template.yaml
 model.tsv
 ```
 
-under `models/multiple/`. Note: use `models/keras/model.yaml` as a starting point for `model-template.yaml`.
+To get more information about these 'Contributing multiple very similar models with a template' paragraph in [Kipoi 0.6 release notes](https://medium.com/@zigaavsec/kipoi-0-6-release-notes-854a45bd6fdc).
+
+Note: use `models/keras/model.yaml` as a starting point for `model-template.yaml`.
 
 You can find all the links to the model under [models/multiple/README.md](models/multiple/README.md).
 
 Test if you can successfully run the models using:
 
-```
+```bash
 kipoi test models/multiple/model3
 ```
 
