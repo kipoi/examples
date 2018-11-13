@@ -38,9 +38,9 @@ model-template.yaml
 model.tsv
 ```
 
-To get more information about these 'Contributing multiple very similar models with a template' paragraph in [Kipoi 0.6 release notes](https://medium.com/@zigaavsec/kipoi-0-6-release-notes-854a45bd6fdc).
+To get more information about these files, read the 'Contributing multiple very similar models with a template' paragraph in [Kipoi 0.6 release notes](https://medium.com/@zigaavsec/kipoi-0-6-release-notes-854a45bd6fdc).
 
-Note: use `models/keras/model.yaml` as a starting point for `model-template.yaml`.
+Note: use `models/keras/model.yaml` as a starting point for `models/multiple/model-template.yaml`.
 
 You can find all the links to the model under [models/multiple/README.md](models/multiple/README.md).
 
@@ -70,7 +70,7 @@ Note: you can add the following entry to model.yaml in order to automatically ch
 test:
   expect:
     url: <url to expect.h5>
-	md5: <md5 hash of expect.h5>
+    md5: <md5 hash of expect.h5>
   precision_decimal: 6
 ```
 
