@@ -23,17 +23,54 @@ source activate kipoi-shared__envs__kipoi-py3-keras2
 kipoi test models/gc_bias
 ```
 
-### 3. Adding a Keras with a pre-defined dataloader from Kipoiseq
+### 3. Adding multiple Keras models in a single batch
 
 I used the following [colab notebook](https://colab.research.google.com/github/Avsecz/DL-genomics-exercise/blob/master/Simulated.ipynb) to train three models. 
 
+I created a Kipoi model out of a single model (model1) and saved it to: [models/keras](models/keras).
 
-Let's add a simple Keras model
+Read [models/keras/model.yaml](models/keras/model.yaml) and run `kipoi test models/keras` to see if it works.
 
-### 4. Adding multiple Keras models in a single batch
+Your task is now to use model templating to simulteneusly add all there models by writing the following two files:
 
+```
+model-template.yaml
+model.tsv
+```
 
+under `models/multiple/`. Note: use `models/keras/model.yaml` as a starting point for `model-template.yaml`.
 
+You can find all the links to the model under [models/multiple/README.md](models/multiple/README.md).
+
+Test if you can successfully run the models using:
+
+```
+kipoi test models/multiple/model3
+```
+
+### 4. Testing if predictions match the expected ones
+
+Generate the expected predictions
+
+```bash
+kipoi test models/keras -o models/keras/expect.h5
+```
+
+Test if they match:
+
+```bash
+kipoi test models/keras -e models/keras/expect.h5
+```
+
+Note: you can add the following entry to model.yaml in order to automatically check predictions for every `kipoi test <model>`:
+
+```yaml
+test:
+  expect:
+    url: <url to expect.h5>
+	md5: <md5 hash of expect.h5>
+  precision_decimal: 6
+```
 
 ## Links
 

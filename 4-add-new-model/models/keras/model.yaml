@@ -7,14 +7,15 @@ args:
 default_dataloader:
   defined_as: kipoiseq.dataloaders.SeqIntervalDl
   default_args:
-    auto_resize_len: 101
+    auto_resize_len: 500
 
 info:
     authors:
         - name: My Name
           github: myname
     doc: >
-      Dummy DNA-sequence-based model
+      Dummy DNA-sequence-based model.
+      See also https://colab.research.google.com/github/Avsecz/DL-genomics-exercise/blob/master/Simulated.ipynb
     cite_as: https://doi.org/xyz
     trained_on: >
       Simulation data https://github.com/kundajelab/dragonn/raw/master/paper_supplement/simulation_data/GC_fraction0.4motif_nameTAL1_known4num_neg10000num_pos10000seq_length500.npz
@@ -33,7 +34,7 @@ schema:
   inputs:
     name: seq
     special_type: DNASeq
-    shape: (101, 4)
+    shape: (500, 4)
     doc: DNA sequence
     associated_metadata: ranges
   targets:
@@ -45,8 +46,3 @@ postprocessing:
     variant_effects:
       seq_input:
         - seq
-
-# test:
-#   expect:
-#     url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/DeepBind/{{ model }}/predictions.h5
-#     md5: 49efa1bb7794001d744b8ff1eb2ebd5c

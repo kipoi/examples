@@ -1,5 +1,3 @@
-
-
 ### Links
 
 All the required files can be found using the following URL template:
