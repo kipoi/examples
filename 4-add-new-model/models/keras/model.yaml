@@ -1,0 +1,42 @@
+defined_as: model.GCBiasModel
+args:
+  dummy: 3
+
+default_dataloader: TODO
+
+dependencies:
+  pip:
+    - numpy
+
+info:
+  authors:
+  - github: yourname
+    name: Your Name
+  cite_as: https://doi.org/xyz
+ 
+  doc: >
+    Compute the GC fraction of the sequence
+  license: MIT
+  tags:
+    - DNA methylation
+
+schema:
+  inputs:
+    name: seq
+    doc: 100bp sequence
+    shape: (100, 4)
+    special_type: DNASeq
+  targets:
+    doc: Sequece GC fraction
+    shape: (1, )
+
+postprocessing:
+  variant_effects:
+    seq_input:
+      - seq
+
+test:
+  expect:
+    url: <TODO>
+    md5: <TODO>
+  precision_decimal: 6

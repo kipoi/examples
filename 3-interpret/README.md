@@ -1,7 +1,9 @@
-## Work in progress
+## Setup
 
-## Tutorials
+Make sure have the environemnt setup ([../README.md](../README.md)).
 
-1. feature-imp-scores
-  - highlights the functionality of feature importance scores
-2. mutation_maps.ipynb
+## Tutorial
+
+### Feature importance scores overview
+
+Go through the [feature-imp-scores.ipynb](feature-imp-scores.ipynb) notebook.

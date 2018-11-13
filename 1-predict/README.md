@@ -1,7 +1,3 @@
-## TODO
-
-- [ ] add file description
-
 ## Setup
 
 Make sure have the environemnt setup ([../README.md](../README.md)).
@@ -23,7 +19,7 @@ Notes:
 
 ### 2. Run `kipoi predict` on new data
 
-Let's try to run model prediction on new data. Try:
+Let's try to run model prediction on new data. We'll use enhancer regions in H1-hESC as annotated by ChromHMM (download [link](https://egg2.wustl.edu/roadmap/data/byDataType/dnase/BED_files_enh/regions_enh_E003.bed.gz)).
 
 Unzip the fasta file
 ```bash
@@ -85,4 +81,4 @@ Now that we have the predictions scored under `output/`, let's load them into py
 - [CLI-api](http://kipoi.org/docs/using/cli/)
 - [R-api](http://kipoi.org/docs/using/R/)
 
-**Next step: [2-score-variants](../2-score-variants)**
+**Next step: [2-score_variants](../2-score_variants)**
