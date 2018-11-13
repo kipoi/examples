@@ -11,6 +11,7 @@ This repository contains different use-cases higlighting Kipoi. Accompanying pre
     - `conda install -y nb_conda datrie`
   - pip:
     - `pip install numpy pandas matplotlib seaborn snakemake kipoi>=0.6.0`
+- Clone this repository: `git clone https://github.com/kipoi/examples.git && cd examples`
 
 ### Verify Kipoi
 
