@@ -77,7 +77,7 @@ This will run model prediction for many different models.
 
 ### 4. Load and analyze predictions in python
 
-Now that we have the predictions scored under `output/`, let's load them into python, join them into a table and to a very simple analysis. Run throught the [load-visualize.ipynb](./load-visualize.ipynb) notebook.
+Now that we have the predictions scored under `output/`, let's load them into python, join them into a table and perform a very simple analysis. Go through the [load-visualize.ipynb](./load-visualize.ipynb) notebook.
 
 ## Links
 
@@ -85,4 +85,4 @@ Now that we have the predictions scored under `output/`, let's load them into py
 - [CLI-api](http://kipoi.org/docs/using/cli/)
 - [R-api](http://kipoi.org/docs/using/R/)
 
-**Next step: [2-score-variants](2-score-variants)**
+**Next step: [2-score-variants](../2-score-variants)**

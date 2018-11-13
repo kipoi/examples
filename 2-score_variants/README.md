@@ -91,12 +91,12 @@ Next, run:
 snakemake -j 5
 ```
 
-This will run variant effect prediction for many different models. `-j 5` rans 5 jobs in parallel.
+This will run variant effect prediction for many different models. `-j 5` runs 5 jobs in parallel.
 
 
 ### 4. Load and analyze predictions in python
 
-Now that we have the predictions scored under `output/`, let's load them into python, join them into a table and to a very simple analysis. Run throught the [load-visualize.ipynb](./load-visualize.ipynb) notebook.
+Now that we have the predictions scored under `output/`, let's load them into python, join them into a table and do a simple analysis. Go through the [load-visualize.ipynb](./load-visualize.ipynb) notebook.
 
 ## Links
 
@@ -107,4 +107,4 @@ Now that we have the predictions scored under `output/`, let's load them into py
   - [Variant effect prediction (simple) tutorial](https://github.com/kipoi/kipoi-veff/blob/master/notebooks/variant_effect_prediction_simple.ipynb)
   - [Variant effect prediction (advanced)](https://github.com/kipoi/kipoi-veff/blob/master/notebooks/variant_effect_prediction.ipynb)
 
-**Next step: [3-interpret](3-interpret)**
+**Next step: [3-interpret](../3-interpret)**
