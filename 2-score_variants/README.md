@@ -13,7 +13,7 @@ Have a look at the `clinvar_20180429.pathogenic.chr22.vcf.gz`
 zless -S input/clinvar_20180429.pathogenic.chr22.vcf.gz
 ```
 
-This file contains genetic variants from the [ClinVar](https://www.ncbi.nlm.nih.gov/clinvar/) database which contains a list of variants and their relation to human diseases (e.g. pathogenic, Benign, etc). We filtered the original ClinVar VCF file to chromosome 22 and included only pathogenic variants.
+This file contains genetic variants from the [ClinVar](https://www.ncbi.nlm.nih.gov/clinvar/) database. We filtered the original ClinVar VCF file to chromosome 22 and included only pathogenic variants.
 
 Let's score the impact of these genetic variants to different molecular phenotypes (e.g. TF-factor binding affinity or DNA accessibility) using models in Kipoi. 
 
