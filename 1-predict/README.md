@@ -46,7 +46,7 @@ less preds.tsv
 ```
 
 Skim through the help of kipoi predict: `kipoi predict --help`. Further things to try:
-- [ ] try out differnet file formats:
+- [ ] try out different file formats:
   - output.h5
   - output.bed
 - [ ] Use a different batch size
