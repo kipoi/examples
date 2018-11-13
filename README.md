@@ -1,6 +1,6 @@
 # kipoi/examples
 
-This repository contains different use-cases higlighting Kipoi. Check out the readme in each sub-folder for more information. Please follow the steps bellow to setup your environemnt:
+This repository contains different use-cases higlighting Kipoi. Accompanying presentation can be found [here](https://docs.google.com/presentation/d/1v92enk7UOVA4VpazYQ3Y3ZxyRJ5IKNqGJmJJOF_TQsE/edit#slide=id.g450d261db4_0_0). Check out the readme in each sub-folder for more information. Please follow the steps bellow to setup your environemnt:
 
 ## Setup
 
@@ -52,4 +52,4 @@ kipoi test DeepBind/Homo_sapiens/TF/D00328.018_ChIP-seq_CTCF/ --source=kipoi
 ## Links
 
 - <https://kipoi.org> - website with pointers to the docs, white-paper and models.
-- [CSHL Biological Data Science 2018 presentation on Kipoi](http://bit.ly/18-11-kipoi-presentation)
+- [Workshop: MIA Workshop Broad institute 2018](https://docs.google.com/presentation/d/1v92enk7UOVA4VpazYQ3Y3ZxyRJ5IKNqGJmJJOF_TQsE/edit#slide=id.g450d261db4_0_0) - Accompanying slides for this tutorial.
