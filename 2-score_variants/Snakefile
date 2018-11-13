@@ -1,17 +1,26 @@
 """Run `kipoi veff score_variants` for multiple models and multiple vcf files
 """
-
 import kipoi
 
-# config - TODO update
-vcf_sets = ['variants', 'clinvar_20180429.enhancer-regions.chr22']
-fasta_file = 'input/hg38_chr22.fa'
+# --------------------------------------------
+# Config
+CLINVAR_DATE = "20180429"  # clinvar dowload date
 
+vcf_sets = ['clinvar_{}.pathogenic.chr22'.format(CLINVAR_DATE)]
+fasta_file = '../1-predict/input/hg19.chr22.fa'
 assert os.path.exists(fasta_file)
 
-models = ['DeepSEA/variantEffects', 'Basset', 'DeepBind/Homo_sapiens/TF/D00328.018_ChIP-seq_CTCF']
+# get all DeepBind models in trained on human ChIP-seq
+df = kipoi.list_models()
+deepbind_models = df.model[df.model.str.match("DeepBind/Homo_sapiens/TF/.*_ChIP-seq.*")].tolist()
+assert len(deepbind_models) == 137
 
-file_formats = ['vcf', 'tsv', 'h5']
+# which models to use
+models = deepbind_models[:10] + ['DeepSEA/variantEffects', 'Basset']
+
+# output file format
+file_formats = ['tsv']  # additional: ['vcf', 'h5']
+# --------------------------------------------
 
 rule all:
     input:
@@ -20,7 +29,7 @@ rule all:
                model=models,
                ext=file_formats)
 
-# kipoi veff score_variants DeepSEA/score_a --dataloader_args='{"fasta_file": "inputs/hg38_chr22.fa"}' \
+# kipoi veff score_variants DeepSEA/score_a --dataloader_args='{"fasta_file": "inputs/hg19.chr22.fa"}' \
 # -i input/variants.vcf.gz -o output/variants.vcf -e output/variants.tsv
 
 rule score_variants:
@@ -31,8 +40,9 @@ rule score_variants:
         f = "output/{model}/{vcf_set}.{ext}",
     params:
         output_flag = lambda wildcards: "-o" if wildcards.ext == "vcf" else "-e",
-        workers = 10,  # number of workers
-        batch_size = 32
+        workers = 4,  # number of workers
+        batch_size = 32,
+        score = lambda wildcards: "diff" if wildcards.model.startswith("DeepBind") else "logit"
     shell:
         """
         mkdir -p `dirname {output.f}`
@@ -46,15 +56,9 @@ rule score_variants:
             -n {params.workers} \
             --batch_size={params.batch_size} \
             {params.output_flag} {output.f} \
-            -s ref alt logit_ref logit_alt diff \
+            -s {params.score} \
             --std_var_id
         """
-# TODO - remove source=dir, gtf_file and preproc_transformer
-
-# ------------------------------------------------
-
-
-CLINVAR_DATE = "20180429"  # clinvar dowload date
 
 
 rule download_clinvar:
@@ -63,17 +67,16 @@ rule download_clinvar:
     - keep only chromosome 22
     - keep only variants where alt != '.'
     - replace 22 -> chr22
+    - keep only Pathogenic variants
     """
-    input:
-        filt_region = "../1-predict/input/enhancer-regions.hg19.chr22.bed.gz"
     output:
-        vcf = "input/clinvar_{}.enhancer-regions.chr22.vcf.gz".format(CLINVAR_DATE)
+        vcf = "input/clinvar_{}.pathogenic.chr22.vcf.gz".format(CLINVAR_DATE)
     shell:
         """
         wget -O - ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh37/archive_2.0/2018/clinvar_{CLINVAR_DATE}.vcf.gz | \
           zcat | vcftools --vcf - --remove-indels --recode --recode-INFO-all -c --chr 22 | \
           awk '$5 != "."' | \
           sed  -e 's/^22/chr22/' | \
-          bedtools intersect -a stdin -b {input.filt_region} -wa -u -header |
+          grep -E '^#|CLNSIG=Pathogenic' | \
           gzip -c > {output.vcf}
         """

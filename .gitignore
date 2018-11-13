@@ -85,3 +85,5 @@ examples/rbp/example_files/variants.vcf.gz.tbi
 
 *.tbi
 *.fai
+/1-predict/input/hg19.chr22.fa
+/2-score_variants/input/clinvar_20180429.pathogenic.chr22.vcf.gz.gz

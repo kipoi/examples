@@ -1,3 +1,7 @@
+## TODO
+
+- [ ] add file description
+
 ## Setup
 
 Make sure have the environemnt setup ([../README.md](../README.md)).
@@ -33,7 +37,6 @@ source activate `kipoi env get DeepBind`
 
 Run prediction
 ```bash
-source activate `kipoi env get DeepBind`
 kipoi predict DeepBind/Homo_sapiens/TF/D00328.018_ChIP-seq_CTCF \
    --dataloader_args='{"intervals_file": "input/enhancer-regions.hg19.chr22.bed.gz",
                        "fasta_file": "input/hg19.chr22.fa"}' \
