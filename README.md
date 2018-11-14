@@ -1,6 +1,6 @@
 # kipoi/examples
 
-This repository contains different use-cases higlighting Kipoi. Accompanying presentation can be found [here](https://docs.google.com/presentation/d/1v92enk7UOVA4VpazYQ3Y3ZxyRJ5IKNqGJmJJOF_TQsE/edit#slide=id.g450d261db4_0_0). Check out the readme in each sub-folder for more information. Please follow the steps bellow to setup your environemnt:
+This repository contains different use-cases higlighting Kipoi. Accompanying presentation can be found [here](https://docs.google.com/presentation/d/1v92enk7UOVA4VpazYQ3Y3ZxyRJ5IKNqGJmJJOF_TQsE/edit#slide=id.g450d261db4_0_0). Check out the readme in each sub-folder for more information. Please follow the steps bellow to setup your environment:
 
 ## Setup
 
