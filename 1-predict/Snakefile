@@ -47,9 +47,8 @@ rule predict:
         batch_size = 32
     shell:
         """
-        kipoi_cmd=$(kipoi env get_cli {wildcards.model})
-
-        $kipoi_cmd predict \
+        source activate $(kipoi env get {wildcards.model})
+        kipoi predict \
           {wildcards.model} \
           --dataloader_args='{{"intervals_file": "{input.intervals_file}",
                               "fasta_file": "{input.fasta_file}"}}' \
