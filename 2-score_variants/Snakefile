@@ -47,9 +47,8 @@ rule score_variants:
         """
         mkdir -p `dirname {output.f}`
 
-        kipoi_cmd=$(kipoi env get_cli {wildcards.model})
-
-        $kipoi_cmd veff score_variants \
+        source activate $(kipoi env get {wildcards.model})
+        kipoi veff score_variants \
             {wildcards.model} \
             --dataloader_args='{{"fasta_file": "{input.fasta_file}"}}' \
             -i {input.vcf} \
